@@ -178,6 +178,7 @@ foreach ($Customer in $Customers) {
             StatusCode = [HttpStatusCode]::OK
             Body       = $Customer.registrationtoken
         })
+        return;
     }
     #$CustomerReport.Add($ReportItem) > $Null
 }
