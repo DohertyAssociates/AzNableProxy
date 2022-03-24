@@ -1,6 +1,25 @@
 
 using namespace System.Net
 
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Define the command-line parameters to be used by the script
+
+
+$serverHost = $ENV:NableHostname
+$JWT = $ENV:JWTKey2
+$JWT0 = $ENV:JWTKey
+$AzureTenantGUID = $Request.Query.ID
+
+#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#Register-PSRepository -Default
+
+#if ( -Not (Get-Module PS-NCentral)) {
+#    Install-Module -Name PS-NCentral
+#}
+
+
 function ProcessData1([Array]$InArray,[String]$PairClass){
 		
     ## Received Dataset KeyPairs 2 List/Columns
@@ -77,25 +96,6 @@ function ProcessData1([Array]$InArray,[String]$PairClass){
 #		$OutObjects
 #		Write-Output $OutObjects
 }
-
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Define the command-line parameters to be used by the script
-
-
-$serverHost = $ENV:NableHostname
-$JWT = $ENV:JWTKey2
-$JWT0 = $ENV:JWTKey
-$AzureTenantGUID = $Request.Query.ID
-
-#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-#Register-PSRepository -Default
-
-#if ( -Not (Get-Module PS-NCentral)) {
-#    Install-Module -Name PS-NCentral
-#}
 
 #Connect to NC
 #New-NCentralConnection -ServerFQDN $serverHost -JWT $JWT | Out-Null
