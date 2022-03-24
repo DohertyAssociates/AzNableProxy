@@ -1,8 +1,86 @@
+
 using namespace System.Net
+
+function ProcessData1([Array]$InArray,[String]$PairClass){
+		
+    ## Received Dataset KeyPairs 2 List/Columns
+    $OutObjects = @()
+    
+    if ($InArray){
+        foreach ($InObject in $InArray) {
+
+#				$ThisObject = New-Object PSObject				## In this routine the object is created at start. Properties are added with values.
+            $Props = @{}									## In this routine the object is created at the end. Properties from a list.
+
+            ## Add a Reference-Column at Object-Level
+            If ($PairClass -eq "Properties"){
+                ## CustomerLink if Available
+                if(Get-Member -inputobject $InObject -name "CustomerID"){
+#						$ThisObject | Add-Member -MemberType NoteProperty -Name 'CustomerID' -Value $InObject.CustomerID -Force
+                    $Props.add('CustomerID',$InObject.CustomerID)
+                }
+                
+                ## DeviceLink if Available
+                if(Get-Member -inputobject $InObject -name "DeviceID"){
+#						$ThisObject | Add-Member -MemberType NoteProperty -Name 'DeviceID' -Value $InObject.DeviceID -Force
+                    $Props.add('DeviceID',$InObject.DeviceID)
+                }
+            }
+
+            ## Convert all (remaining) keypairs to Properties
+            foreach ($item in $InObject.$PairClass) {
+
+                ## Cleanup the Key and/or Value before usage.
+                If ($PairClass -eq "Properties"){
+                    $Header = $item.label
+                }
+                Else{
+                    If($item.key.split(".")[0] -eq 'asset'){	##Should use ProcessData2 (ToDo)
+                        $Header = $item.key
+                    }
+                    Else{
+                        $Header = $item.key.split(".")[1]
+                    }
+                }
+
+                ## Ensure a Flat Value
+                If ($item.value -is [Array]){
+                    $DataValue = $item.Value[0]
+                }
+                Else{
+                    $DataValue = $item.Value
+                }
+
+                ## Now add the Key/Value pairs.
+#					$ThisObject | Add-Member -MemberType NoteProperty -Name $Header -Value $DataValue -Force
+
+                 # if a key is found that already exists in the hashtable
+                if ($Props.ContainsKey($Header)) {
+                    # either overwrite the value 'Last-One-Wins'
+                    # or do nothing 'First-One-Wins'
+                    #if ($this.allowOverwrite) { $Props[$Header] = $DataValue }
+                }
+                else {
+                    $Props[$Header] = $DataValue
+                }					
+#					$Props.add($Header,$DataValue)
+
+            }
+            $ThisObject = New-Object -TypeName PSObject -Property $Props	#Alternative option
+
+            ## Add the Object to the list
+            $OutObjects += $ThisObject
+        }
+    }
+    ## Return the list of Objects
+    Return $OutObjects
+#		$OutObjects
+#		Write-Output $OutObjects
+}
+
 
 # Input bindings are passed in via param block.
 param($Request, $TriggerMetadata)
-
 
 # Define the command-line parameters to be used by the script
 
@@ -110,80 +188,3 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [HttpStatusCode]::NotFound
     Body       = $Null
 })
-
-function ProcessData1([Array]$InArray,[String]$PairClass){
-		
-    ## Received Dataset KeyPairs 2 List/Columns
-    $OutObjects = @()
-    
-    if ($InArray){
-        foreach ($InObject in $InArray) {
-
-#				$ThisObject = New-Object PSObject				## In this routine the object is created at start. Properties are added with values.
-            $Props = @{}									## In this routine the object is created at the end. Properties from a list.
-
-            ## Add a Reference-Column at Object-Level
-            If ($PairClass -eq "Properties"){
-                ## CustomerLink if Available
-                if(Get-Member -inputobject $InObject -name "CustomerID"){
-#						$ThisObject | Add-Member -MemberType NoteProperty -Name 'CustomerID' -Value $InObject.CustomerID -Force
-                    $Props.add('CustomerID',$InObject.CustomerID)
-                }
-                
-                ## DeviceLink if Available
-                if(Get-Member -inputobject $InObject -name "DeviceID"){
-#						$ThisObject | Add-Member -MemberType NoteProperty -Name 'DeviceID' -Value $InObject.DeviceID -Force
-                    $Props.add('DeviceID',$InObject.DeviceID)
-                }
-            }
-
-            ## Convert all (remaining) keypairs to Properties
-            foreach ($item in $InObject.$PairClass) {
-
-                ## Cleanup the Key and/or Value before usage.
-                If ($PairClass -eq "Properties"){
-                    $Header = $item.label
-                }
-                Else{
-                    If($item.key.split(".")[0] -eq 'asset'){	##Should use ProcessData2 (ToDo)
-                        $Header = $item.key
-                    }
-                    Else{
-                        $Header = $item.key.split(".")[1]
-                    }
-                }
-
-                ## Ensure a Flat Value
-                If ($item.value -is [Array]){
-                    $DataValue = $item.Value[0]
-                }
-                Else{
-                    $DataValue = $item.Value
-                }
-
-                ## Now add the Key/Value pairs.
-#					$ThisObject | Add-Member -MemberType NoteProperty -Name $Header -Value $DataValue -Force
-
-                 # if a key is found that already exists in the hashtable
-                if ($Props.ContainsKey($Header)) {
-                    # either overwrite the value 'Last-One-Wins'
-                    # or do nothing 'First-One-Wins'
-                    #if ($this.allowOverwrite) { $Props[$Header] = $DataValue }
-                }
-                else {
-                    $Props[$Header] = $DataValue
-                }					
-#					$Props.add($Header,$DataValue)
-
-            }
-            $ThisObject = New-Object -TypeName PSObject -Property $Props	#Alternative option
-
-            ## Add the Object to the list
-            $OutObjects += $ThisObject
-        }
-    }
-    ## Return the list of Objects
-    Return $OutObjects
-#		$OutObjects
-#		Write-Output $OutObjects
-}
