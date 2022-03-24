@@ -8,10 +8,20 @@ param($Request, $TriggerMetadata)
 
 
 $serverHost = $ENV:NableHostname
-$JWT = $ENV:JWTKey
-$SpecifiedCustomerID = $Request.Query.ID
-# Generate a pseudo-unique namespace to use with the New-WebServiceProxy and
-# associated types.
+$JWT = $ENV:JWTKey2
+$JWT0 = $ENV:JWTKey
+$AzureTenantGUID = $Request.Query.ID
+
+#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#Register-PSRepository -Default
+
+if ( -Not (Get-Module PS-NCentral)) {
+    Install-Module -Name PS-NCentral
+}
+
+#Connect to NC
+New-NCentralConnection -ServerFQDN $serverHost -JWT $JWT | Out-Null
+
 $CustRestBody = 
 @"
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ei2="http://ei2.nobj.nable.com/">
@@ -19,7 +29,7 @@ $CustRestBody =
    <soap:Body>
       <ei2:customerList>
           <ei2:username>$null</ei2:username>
-          <ei2:password>$JWT</ei2:password>
+          <ei2:password>$JWT0</ei2:password>
          <ei2:settings>
             <ei2:key>listSOs</ei2:key>
             <ei2:value>false</ei2:value>
@@ -38,8 +48,6 @@ Catch {
     Write-Host "Could not connect: $($_.Exception.Message)"
     exit
 }
-
-
 # Set up the "Customers" array, then populate
 $Customers = ForEach ($Entity in $CustomerList) {
     $CustomerAssetInfo = @{}
@@ -50,10 +58,30 @@ $Customers = ForEach ($Entity in $CustomerList) {
     }
 }
 
+#$Customers | Out-GridView
 
-$Output = ($Customers | Where-Object { $_.ID -eq $SpecifiedCustomerID }).RegistrationToken
+
+#Merge
+foreach ($Customer in $Customers) {
+    #Write-Host "querying: $($Customer.id)"
+    $Properties = Get-NCCustomerPropertyList $Customer.id
+    $AzureTenantProperty = $Properties.psobject.properties['AzureTenantGUID']
+    #Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
+
+    if (($AzureTenantProperty) -and ($AzureTenantGUID -eq $AzureTenantProperty.Value)) {
+        #return $Customer.registrationtoken
+        # Associate values to output bindings by calling 'Push-OutputBinding'.
+        Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+            StatusCode = [HttpStatusCode]::OK
+            Body       = $Customer.registrationtoken
+        })
+    }
+    #$CustomerReport.Add($ReportItem) > $Null
+}
+
+#return "fail"
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-        StatusCode = [HttpStatusCode]::OK
-        Body       = $Output
-    })
+    StatusCode = [HttpStatusCode]::NotFound
+    Body       = $Null
+})
