@@ -21,7 +21,7 @@ $AzureTenantGUID = $Request.Query.ID
 
 
 function ProcessData1([Array]$InArray,[String]$PairClass){
-    Write-Host "Process Data"	
+    #Write-Host "Process Data"	
     ## Received Dataset KeyPairs 2 List/Columns
     $OutObjects = @()
     
