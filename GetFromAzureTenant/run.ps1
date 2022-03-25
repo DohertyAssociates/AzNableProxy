@@ -180,11 +180,15 @@ foreach ($Customer in $Customers) {
     #Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
 
     if (($AzureTenantProperty) -and ($AzureTenantGUID -eq $AzureTenantProperty.Value)) {
+        $retVal = @()
+        $retVal.customerid = $Customer.id
+        $retVal.regtoken = $Customer.registrationtoken
+        $json = $retVal | ConvertTo-Json
         #return $Customer.registrationtoken
         # Associate values to output bindings by calling 'Push-OutputBinding'.
         Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
             StatusCode = [HttpStatusCode]::OK
-            Body       = $Customer.registrationtoken
+            Body       = $json
         })
         return;
     }
