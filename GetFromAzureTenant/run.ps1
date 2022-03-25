@@ -97,6 +97,32 @@ function ProcessData1([Array]$InArray,[String]$PairClass){
 #		Write-Output $OutObjects
 }
 
+function Get-Properties([String] $CustomerID) {
+$PropsRestBody = @"
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ei2="http://ei2.nobj.nable.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ei2:organizationPropertyList>
+          <ei2:username>$null</ei2:username>
+          <ei2:password>$JWT</ei2:password>
+         <ei2:customerIds>$CustomerID</ei2:customerIds>
+         <ei2:reverseOrder>false</ei2:reverseOrder>
+      </ei2:organizationPropertyList>
+   </soap:Body>
+</soap:Envelope>
+"@
+
+Try {
+    $PropertiesReturn = (Invoke-RestMethod -Uri $bindingURL -body $PropsRestBody -Method POST).Envelope.body.organizationPropertyListResponse.return
+    $PropertiesList = ProcessData1 $PropertiesReturn "properties"
+}
+Catch {
+    Write-Host "Could not connect: $($_.Exception.Message)"
+    exit
+}
+return $PropertiesList
+}
+
 #Connect to NC
 #New-NCentralConnection -ServerFQDN $serverHost -JWT $JWT | Out-Null
 
@@ -170,7 +196,10 @@ Catch {
 Write-Host "Finding Tenant ID"
 foreach ($Customer in $Customers) {
     #Write-Host "querying: $($Customer.id)"
-    $Properties = $PropertiesList | Where-Object { $_.customerid -eq $Customer.id }
+    $Properties = Get-Properties $Customer.id
+    if ($Null -eq $Properties) {
+        continue;
+    }
     $AzureTenantProperty = $Properties.psobject.properties['AzureTenantGUID']
     #Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
 
