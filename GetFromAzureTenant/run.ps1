@@ -21,7 +21,7 @@ $AzureTenantGUID = $Request.Query.ID
 
 
 function ProcessData1([Array]$InArray,[String]$PairClass){
-		
+    Write-Host "Process Data"	
     ## Received Dataset KeyPairs 2 List/Columns
     $OutObjects = @()
     
@@ -120,6 +120,7 @@ $CustRestBody =
 $bindingURL = "https://" + $serverHost + "/dms2/services2/ServerEI2?wsdl"
 
 Try {
+    Write-Host "Getting Customers Table"
     $customerlist = (Invoke-RestMethod -Uri $bindingURL -body $CustRestBody -Method POST).Envelope.body.customerListResponse.return
 }
 Catch {
@@ -153,6 +154,7 @@ $PropsRestBody =
 "@
 
 Try {
+    Write-Host "Getting Properties Table"
     $PropertiesReturn = (Invoke-RestMethod -Uri $bindingURL -body $PropsRestBody -Method POST).Envelope.body.organizationPropertyListResponse.return
     $PropertiesList = ProcessData1 $PropertiesReturn "properties"
 }
@@ -165,6 +167,7 @@ Catch {
 #return
 
 #Merge
+Write-Host "Finding Tenant ID"
 foreach ($Customer in $Customers) {
     #Write-Host "querying: $($Customer.id)"
     $Properties = $PropertiesList | Where-Object { $_.customerid -eq $Customer.id }
