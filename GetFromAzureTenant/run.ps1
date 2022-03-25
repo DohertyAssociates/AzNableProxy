@@ -180,7 +180,7 @@ foreach ($Customer in $Customers) {
     #Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
 
     if (($AzureTenantProperty) -and ($AzureTenantGUID -eq $AzureTenantProperty.Value)) {
-        $retVal = @()
+        $retVal = "" | Select-Object customerid, regtoken
         $retVal.customerid = $Customer.id
         $retVal.regtoken = $Customer.registrationtoken
         $json = $retVal | ConvertTo-Json
