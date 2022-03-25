@@ -165,30 +165,6 @@ $Customers = ForEach ($Entity in $CustomerList) {
 
 #$Customers | Out-GridView
 
-$PropsRestBody = 
-@"
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ei2="http://ei2.nobj.nable.com/">
-   <soap:Header/>
-   <soap:Body>
-      <ei2:organizationPropertyList>
-          <ei2:username>$null</ei2:username>
-          <ei2:password>$JWT</ei2:password>
-         <ei2:reverseOrder>false</ei2:reverseOrder>
-      </ei2:organizationPropertyList>
-   </soap:Body>
-</soap:Envelope>
-"@
-
-Try {
-    Write-Host "Getting Properties Table"
-    $PropertiesReturn = (Invoke-RestMethod -Uri $bindingURL -body $PropsRestBody -Method POST).Envelope.body.organizationPropertyListResponse.return
-    $PropertiesList = ProcessData1 $PropertiesReturn "properties"
-}
-Catch {
-    Write-Host "Could not connect: $($_.Exception.Message)"
-    exit
-}
-
 #$PropertiesList | Out-GridView
 #return
 
