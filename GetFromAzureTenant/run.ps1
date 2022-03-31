@@ -180,11 +180,12 @@ foreach ($Customer in $Customers) {
     $AzureTenantProperty = $Properties.psobject.properties['AzureTenantGUID']
 
     if (($AzureTenantProperty) -and ($AzureTenantGUID -eq $AzureTenantProperty.Value)) {
-        Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
         $retVal = "" | Select-Object customerid, regtoken
         $retVal.customerid = $Customer.id
         $retVal.regtoken = $Customer.registrationtoken
         $json = $retVal | ConvertTo-Json
+
+        Write-Host "CustomerID: $($Customer.id)"
         #return $Customer.registrationtoken
         # Associate values to output bindings by calling 'Push-OutputBinding'.
         Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
