@@ -12,8 +12,6 @@ $JWT = $ENV:JWTKey2
 $JWT0 = $ENV:JWTKey
 $AzureTenantGUID = $Request.Query.ID
 
-Write-Host "ID: $AzureTenantGUID"
-
 #[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 #Register-PSRepository -Default
 
@@ -148,6 +146,7 @@ $CustRestBody =
 $bindingURL = "https://" + $serverHost + "/dms2/services2/ServerEI2?wsdl"
 
 Try {
+    Write-Host "ID: $($AzureTenantGUID)"
     Write-Host "Getting Customers Table"
     $customerlist = (Invoke-RestMethod -Uri $bindingURL -body $CustRestBody -Method POST).Envelope.body.customerListResponse.return
 }
@@ -179,9 +178,9 @@ foreach ($Customer in $Customers) {
         continue;
     }
     $AzureTenantProperty = $Properties.psobject.properties['AzureTenantGUID']
-    #Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
 
     if (($AzureTenantProperty) -and ($AzureTenantGUID -eq $AzureTenantProperty.Value)) {
+        Write-Host "AzureTenantGUID: $($AzureTenantProperty)"
         $retVal = "" | Select-Object customerid, regtoken
         $retVal.customerid = $Customer.id
         $retVal.regtoken = $Customer.registrationtoken
