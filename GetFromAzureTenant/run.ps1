@@ -12,6 +12,8 @@ $JWT = $ENV:JWTKey2
 $JWT0 = $ENV:JWTKey
 $AzureTenantGUID = $Request.Query.ID
 
+Write-Host "ID: $AzureTenantGUID"
+
 #[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 #Register-PSRepository -Default
 
