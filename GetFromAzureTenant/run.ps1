@@ -151,8 +151,19 @@ Try {
     $customerlist = (Invoke-RestMethod -Uri $bindingURL -body $CustRestBody -Method POST).Envelope.body.customerListResponse.return
 }
 Catch {
-    Write-Host "Could not connect: $($_.Exception.Message)"
-    exit
+    #try again, wake up ncentral
+    Try {
+        Write-Host "ID: $($AzureTenantGUID)"
+        Write-Host "Getting Customers Table"
+        $customerlist = (Invoke-RestMethod -Uri $bindingURL -body $CustRestBody -Method POST).Envelope.body.customerListResponse.return
+    }
+    Catch {
+        Write-Host "Could not connect: $($_.Exception.Message)"
+        Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+            StatusCode = [HttpStatusCode]::BadGateway
+            Body       = "Could not connect: $($_.Exception.Message)"
+        })
+    }
 }
 # Set up the "Customers" array, then populate
 $Customers = ForEach ($Entity in $CustomerList) {
