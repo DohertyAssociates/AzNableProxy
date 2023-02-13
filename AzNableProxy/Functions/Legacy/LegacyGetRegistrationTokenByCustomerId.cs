@@ -16,7 +16,7 @@ namespace AzNableProxy.Functions.Legacy
     {
         [FunctionName("LegacyGetRegistrationTokenByCustomerId")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "get")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "get")] HttpRequest req,
             ILogger log)
         {
             log.LogWarning("This is a legacy function, user /sites/id instead");

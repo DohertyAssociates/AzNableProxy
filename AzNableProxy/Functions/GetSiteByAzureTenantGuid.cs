@@ -16,7 +16,7 @@ namespace AzNableProxy.Functions
     {
         [FunctionName("GetSiteByAzureTenantGuid")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "search/azuretenantguid")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "search/azuretenantguid")] HttpRequest req,
             ILogger log)
         {
             log.LogInformation($"GetSiteByAzureTenantGuid called");

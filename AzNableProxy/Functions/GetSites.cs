@@ -16,7 +16,7 @@ namespace AzNableProxy.Functions
     {
         [FunctionName("GetSites")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "sites")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sites")] HttpRequest req,
             ILogger log)
         {
             log.LogInformation($"GetSites called");
@@ -28,21 +28,6 @@ namespace AzNableProxy.Functions
             var sites = await siteHelper.GetSites();
 
             return new OkObjectResult(sites);
-
-
-            /*
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-            */
-
-            return new OkResult();
         }
     }
 }

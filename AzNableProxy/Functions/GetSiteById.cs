@@ -16,7 +16,7 @@ namespace AzNableProxy.Functions
     {
         [FunctionName("GetSiteById")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "sites/{id}")] HttpRequest req, string id,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sites/{id}")] HttpRequest req, string id,
             ILogger log)
         {
             log.LogInformation($"GetSiteById called");
