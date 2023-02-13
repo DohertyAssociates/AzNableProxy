@@ -1,38 +1,68 @@
-# AzNableProxy
-This is a proxy to allow users to retrieve the installation keys for N-Central agents without having complete API access
+## Overview
+This is a proxy service that allows user to retrieve information from N-Central without having complete API access.
 
-# How to use
+### Backwards Compatibility
+This is a complete re-write in C# with the original having been built in PowerShell. For backwards compatibility, the `Get` command can still be used and functions the same.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fKelvinTegelaar%2fAzureDeploy%2fmaster%2fAzNableProxy.json)
+## API
+### `GET` /api/sites
+This will retrieve all sites in N-Central. Note that it does not return the Azure Tenant GUID even though it is returned as a property. The response will be a JSON object that looks like the following: 
 
-Click on Deploy with Azure button, or download the script from https://github.com/KelvinTegelaar/AzNableProxy
+```json
+[
+    {
+        "name": "Example 1",
+        "id": 2,
+        "parentId": 1,
+        "registrationToken": "21fcf0e6-5a38-fb4c-46dc-3a0fab76dfb5",
+        "azureTenantId": ""
+    },
+    {
+        "name": "Example 2",
+        "id": 3,
+        "parentId": 1,
+        "registrationToken": "4dbc0e52-aed8-5a68-5006-584d7b5eaff9",
+        "azureTenantId": ""
+    },
+]
+```
 
-Fill in your information:
+### `GET` /api/sites/{id}
+This will retrieve a specific site from N-Central. You must replace with `{id}` with an actual site id. This can be retrieved using the `/api/sites` or `/api/search/customer` functions. The response from this will be a JSON object including the Azure Tenant GUID if one is set. A 404 is returned if the site cannot be found.
 
-*Basename:* anything you want, will be appended with 4 random characters.
+```json
+{
+    "name": "Example 1",
+    "id": 2,
+    "parentId": 1,
+    "registrationToken": "21fcf0e6-5a38-fb4c-46dc-3a0fab76dfb5",
+    "azureTenantId": "a19f37b4-34ca-4526-b84c-b53a3815ba0c"
+}
+```
 
-*JWTKey*: Your N-Able JWT key. You can find this at the User management page, last tab called "API".
+### `POST` /api/search/azuretenantguid
+This will return an N-Central site object where the Azure Tenant GUID matches the one provided. This is an HTTP post operation an expect a JSON object as its body. The body should be in the following format:
+```json
+{
+	"azureTenantGuid":  "a19f37b4-34ca-4526-b84c-b53a3815ba0c",
+	"customerWildcard":  "Bowmark",
+	"excludedSites":  [
+		"Barrick",
+		"Doherty"
+	]
+}
+```
+- `azureTenantGuid`: This is required as is the Azure Tenant GUID you are looking for.
+- `customerWildcard`: If you know the name of the site, or the rough name, you can provide a string to get a quicker response. If a site is not found it will retry the search without the wildcard automatically. This is parameter is optional. 
+- `excludedSites`: You can optionally pass a string array to explicitly exclude sites to search for. Doing this will result in a quick response. 
 
-*Nable Hostname*: Your Nable hostname.
-
-*Branch*: Currently only Master is available.
-
-after creating the function, click on "Go to resource" then click on "Functions" and then "Get". Lastely click on "Get Function URL"
-
-This can now be used to get the installation ID for a client. for example for client 101:
-
-     <https://aznableproxy1234.azurewebsites.net/api/Get?code=SOMELONGCODEHERE&ID=101>
-
-you can also use PowerShell to retrieve this ID easily:
-
-     $ID = "101"
-     invoke-restmethod -uri "https://aznableproxy1234.azurewebsites.net/api/Get?code=SOMELONGCODEHERE&ID=$($ID)"
-
-# FAQ
-
-Q: Why did you write out the XML and not use webservices?
-A: SOAP is regarded legacy by Microsoft, and thus PowerShell 7 does not support Webservices anymore. to get them to work, you can write-out the XML and pass it with Invoke-Restmethod.
-
-
-Q: Why an azure function?
-A: We're a Microsoft house, and we don't like our actual N-central API key flying around. With this all the data you can get is an installation-ID for software. Not the biggest issue.
+The response is a JSON site object or a 404 if no site could be find with the provided Azure Tenant GUID.
+```json
+{
+    "name": "Example 1",
+    "id": 2,
+    "parentId": 1,
+    "registrationToken": "21fcf0e6-5a38-fb4c-46dc-3a0fab76dfb5",
+    "azureTenantId": "a19f37b4-34ca-4526-b84c-b53a3815ba0c"
+}
+```
