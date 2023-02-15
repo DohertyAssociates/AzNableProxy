@@ -40,8 +40,8 @@ This will retrieve a specific site from N-Central. You must replace with `{id}` 
 }
 ```
 
-### `POST` /api/search/azuretenantguid
-This will return an N-Central site object where the Azure Tenant GUID matches the one provided. This is an HTTP post operation an expect a JSON object as its body. The body should be in the following format:
+### `GET` /api/search/azuretenantguid
+This will return an N-Central site object where the Azure Tenant GUID matches the one provided. This is an HTTP GET operation and expects a JSON object as its body. The body should be in the following format:
 ```json
 {
 	"azureTenantGuid":  "a19f37b4-34ca-4526-b84c-b53a3815ba0c",
@@ -65,4 +65,26 @@ The response is a JSON site object or a 404 if no site could be find with the pr
     "registrationToken": "21fcf0e6-5a38-fb4c-46dc-3a0fab76dfb5",
     "azureTenantId": "a19f37b4-34ca-4526-b84c-b53a3815ba0c"
 }
+```
+
+### `GET` /api/search/customer?name={siteName}
+This will return N-Central site objects where the supplied name matches a site in N-Central.The response is a JSON site array or a 404 if no sites could be found. The Azure Tenant Id will be returned if one has been assigned to a site. 
+
+```json
+[
+    {
+        "name": "Example 1",
+        "id": 2,
+        "parentId": 1,
+        "registrationToken": "21fcf0e6-5a38-fb4c-46dc-3a0fab76dfb5",
+        "azureTenantId": "a19f37b4-34ca-4526-b84c-b53a3815bb0c"
+    },
+    {
+        "name": "Example 2",
+        "id": 3,
+        "parentId": 1,
+        "registrationToken": "4dbc0e52-aed8-5a68-5006-584d7b5eaff9",
+        "azureTenantId": "c19f37b4-34fa-4526-b84c-b53a3815ba0c"
+    },
+]
 ```
