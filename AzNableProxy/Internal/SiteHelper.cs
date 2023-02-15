@@ -97,13 +97,13 @@ namespace AzNableProxy.Internal
             if (request.ExcludedSites.Length > 0)
             {
                 Log.LogInformation($"Excluding sites containing {string.Join(",", request.ExcludedSites)}");
-                workingSites = await ExcludeSitesByString(sites, request.ExcludedSites);
+                workingSites = sites.ExcludeSitesByName(request.ExcludedSites);
             }
 
             if (!string.IsNullOrEmpty(request.CustomerWildcard) && !ignoreCustomerWildcard)
             {
                 Log.LogInformation($"Limiting search to sites containing {request.CustomerWildcard}");
-                workingSites = workingSites.Where(s => s.Name.ToLower().Contains(request.CustomerWildcard.ToLower())).ToList();
+                workingSites = workingSites.GetSitesByName(request.CustomerWildcard);
             }
 
             var stopwatch = new Stopwatch();
@@ -147,29 +147,6 @@ namespace AzNableProxy.Internal
             return null;
         }
 
-        private async Task<List<Site>> ExcludeSitesByString(List<Site> sites, string[] siteNames)
-        {
-            var updatedSites = new ConcurrentBag<Site>();
-
-            if (siteNames.Length <= 0) return sites;
-            {
-                var cts = new CancellationTokenSource();
-                var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = 5, CancellationToken = cts.Token };
-
-                await Parallel.ForEachAsync(siteNames, parallelOptions, async (siteName, ct) =>
-                {
-                    var filteredSites = sites.Where(s => !s.Name.ToLower().Contains(siteName.ToLower())).ToList();
-
-                    foreach (var filteredSite in filteredSites)
-                    {
-                        updatedSites.Add(filteredSite);
-                    }
-                });
-
-                return updatedSites.ToList();
-            }
-        }
-
         // TODO: Rename and possibly move this
         internal async Task<Site> AzureTenantGUID(Site site)
         {
@@ -200,6 +177,52 @@ namespace AzNableProxy.Internal
             }
 
             return site;
+        }
+
+        internal async Task<List<Site>> GetSitesByNameAsync(List<Site> sites, string siteName)
+        {
+            var filteredSites = sites.GetSitesByName(siteName);
+
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var cts = new CancellationTokenSource();
+            var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = 5, CancellationToken = cts.Token };
+            var siteChannel = Channel.CreateUnbounded<Site>();
+
+            try
+            {
+                await Parallel.ForEachAsync(filteredSites, parallelOptions, async (site, ct) =>
+                {
+                    var returnedSite = await AzureTenantGUID(site);
+                    await siteChannel.Writer.WriteAsync(returnedSite, cts.Token);
+
+                });
+            }
+            catch (Exception)
+            {
+                if (siteChannel.Reader.Count > 0)
+                {
+                    stopwatch.Stop();
+                    Log.LogInformation($"Finished in {stopwatch.Elapsed.TotalSeconds}s");
+
+                    var output = new ConcurrentBag<Site>();
+                    await foreach (var site in siteChannel.Reader.ReadAllAsync(cts.Token))
+                    {
+                        output.Add(site);
+                    }
+
+                    return output.ToList();
+                }
+
+                Log.LogError($"An exception was thrown processing site properties in {stopwatch.Elapsed.TotalSeconds}s");
+                return filteredSites;
+            }
+
+            stopwatch.Stop();
+            Log.LogWarning($"Finished in {stopwatch.Elapsed.TotalSeconds}s");
+
+            return filteredSites.ToList();
         }
     }
 }
