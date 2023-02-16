@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AzNableProxy.Models
 {
-    internal class Site
+    public class Site
     {
         public string Name { get; }
 

@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace AzNableProxy.Utilities
 {
-    internal static class SiteExtensions
+    public static class SiteExtensions
     {
-        internal static Site GetSiteById(this List<Site> sites, int id)
+        public static Site GetSiteById(this List<Site> sites, int id)
         {
             return sites.First(s => s.Id == id);
         }
 
-        internal static Site GetSiteByName(this List<Site> sites, string siteName)
+        public static Site GetSiteByName(this List<Site> sites, string siteName)
         {
             return sites.FirstOrDefault(s => s.Name.ToLower().Contains(siteName.ToLower()));
         }
 
-        internal static List<Site> GetSitesByName(this List<Site> sites, string siteName)
+        public static List<Site> GetSitesByName(this List<Site> sites, string siteName)
         {
             var siteLookups = sites.GetCleanedSiteList(siteName);
             var filteredSites = new ConcurrentBag<Site>();
@@ -46,7 +46,7 @@ namespace AzNableProxy.Utilities
             return filteredSites.ToList();
         }
 
-        internal static List<Site> ExcludeSitesByName(this List<Site> sites, string siteName)
+        public static List<Site> ExcludeSitesByName(this List<Site> sites, string siteName)
         {
             var siteLookups = sites.GetCleanedSiteList(siteName);
             var filteredSites = new ConcurrentBag<Site>();
@@ -71,7 +71,7 @@ namespace AzNableProxy.Utilities
             return filteredSites.ToList();
         }
 
-        internal static List<Site> ExcludeSitesByName(this List<Site> sites, string[] siteNames)
+        public static List<Site> ExcludeSitesByName(this List<Site> sites, string[] siteNames)
         {
             var filteredSites = new ConcurrentBag<Site>();
 
@@ -94,7 +94,7 @@ namespace AzNableProxy.Utilities
             return filteredSites.ToList();
         }
 
-        private static IEnumerable<string> GetCleanedSiteList(this List<Site> sites, string siteName)
+        public static IEnumerable<string> GetCleanedSiteList(this List<Site> sites, string siteName)
         {
             var separators = new[] { ' ', '.', '-', '|' };
             var cleanedSiteNames = siteName.Split(separators);

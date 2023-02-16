@@ -13,7 +13,7 @@ namespace NableApi
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ei2.nobj.nable.com/", ConfigurationName="NableApi.ServerEI2")]
-    internal interface ServerEI2
+    public interface ServerEI2
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -5657,7 +5657,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="activeIssuesList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class activeIssuesList1
+    public partial class activeIssuesList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5686,7 +5686,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="activeIssuesListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class activeIssuesListResponse
+    public partial class activeIssuesListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5707,7 +5707,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerAdd", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerAdd1
+    public partial class customerAdd1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5736,7 +5736,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerAddResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerAddResponse1
+    public partial class customerAddResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5756,7 +5756,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="organizationPropertyList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class organizationPropertyList1
+    public partial class organizationPropertyList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5789,7 +5789,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="organizationPropertyListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class organizationPropertyListResponse
+    public partial class organizationPropertyListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5810,7 +5810,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupAdd", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupAdd1
+    public partial class accessGroupAdd1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5839,7 +5839,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupAddResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupAddResponse1
+    public partial class accessGroupAddResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5859,7 +5859,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleList1
+    public partial class userRoleList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5888,7 +5888,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleListResponse
+    public partial class userRoleListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5909,7 +5909,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceGetStatus", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceGetStatus1
+    public partial class deviceGetStatus1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5938,7 +5938,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceGetStatusResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceGetStatusResponse
+    public partial class deviceGetStatusResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5959,7 +5959,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupList1
+    public partial class accessGroupList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -5988,7 +5988,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupListResponse
+    public partial class accessGroupListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6009,7 +6009,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SOAdd", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class SOAdd1
+    public partial class SOAdd1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6038,7 +6038,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SOAddResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class SOAddResponse1
+    public partial class SOAddResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6058,7 +6058,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleAdd", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleAdd1
+    public partial class userRoleAdd1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6087,7 +6087,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleAddResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleAddResponse1
+    public partial class userRoleAddResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6107,7 +6107,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerDelete", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerDelete1
+    public partial class customerDelete1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6136,7 +6136,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerDeleteResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerDeleteResponse1
+    public partial class customerDeleteResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6156,7 +6156,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="organizationPropertyModify", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class organizationPropertyModify1
+    public partial class organizationPropertyModify1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6185,7 +6185,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="organizationPropertyModifyResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class organizationPropertyModifyResponse1
+    public partial class organizationPropertyModifyResponse1
     {
         
         public organizationPropertyModifyResponse1()
@@ -6197,7 +6197,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceList1
+    public partial class deviceList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6226,7 +6226,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceListResponse
+    public partial class deviceListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6247,7 +6247,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="jobStatusList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class jobStatusList1
+    public partial class jobStatusList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6276,7 +6276,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="jobStatusListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class jobStatusListResponse
+    public partial class jobStatusListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6297,7 +6297,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerModify", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerModify1
+    public partial class customerModify1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6326,7 +6326,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerModifyResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerModifyResponse1
+    public partial class customerModifyResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6346,7 +6346,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceAssetInfoExportDevice", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceAssetInfoExportDevice1
+    public partial class deviceAssetInfoExportDevice1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6374,7 +6374,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceAssetInfoExportDeviceResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceAssetInfoExportDeviceResponse
+    public partial class deviceAssetInfoExportDeviceResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6395,7 +6395,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleGet", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleGet1
+    public partial class userRoleGet1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6424,7 +6424,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userRoleGetResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userRoleGetResponse1
+    public partial class userRoleGetResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6445,7 +6445,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="taskPauseMonitoring", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class taskPauseMonitoring1
+    public partial class taskPauseMonitoring1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6474,7 +6474,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="taskPauseMonitoringResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class taskPauseMonitoringResponse1
+    public partial class taskPauseMonitoringResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6494,7 +6494,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceGet", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceGet1
+    public partial class deviceGet1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6523,7 +6523,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceGetResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceGetResponse
+    public partial class deviceGetResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6544,7 +6544,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="versionInfoGet", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class versionInfoGet1
+    public partial class versionInfoGet1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6564,7 +6564,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="versionInfoGetResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class versionInfoGetResponse
+    public partial class versionInfoGetResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6585,7 +6585,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="acknowledgeNotification", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class acknowledgeNotification1
+    public partial class acknowledgeNotification1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6631,7 +6631,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="acknowledgeNotificationResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class acknowledgeNotificationResponse1
+    public partial class acknowledgeNotificationResponse1
     {
         
         public acknowledgeNotificationResponse1()
@@ -6643,7 +6643,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userAdd", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userAdd1
+    public partial class userAdd1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6672,7 +6672,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="userAddResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class userAddResponse1
+    public partial class userAddResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6692,7 +6692,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="devicePropertyModify", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class devicePropertyModify1
+    public partial class devicePropertyModify1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6721,7 +6721,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="devicePropertyModifyResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class devicePropertyModifyResponse1
+    public partial class devicePropertyModifyResponse1
     {
         
         public devicePropertyModifyResponse1()
@@ -6733,7 +6733,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="taskResumeMonitoring", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class taskResumeMonitoring1
+    public partial class taskResumeMonitoring1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6762,7 +6762,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="taskResumeMonitoringResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class taskResumeMonitoringResponse1
+    public partial class taskResumeMonitoringResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6782,7 +6782,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerListChildren", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerListChildren1
+    public partial class customerListChildren1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6811,7 +6811,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerListChildrenResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerListChildrenResponse
+    public partial class customerListChildrenResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6832,7 +6832,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupGet", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupGet1
+    public partial class accessGroupGet1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6861,7 +6861,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="accessGroupGetResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class accessGroupGetResponse1
+    public partial class accessGroupGetResponse1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6882,7 +6882,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceAssetInfoExportDeviceWithSettings", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceAssetInfoExportDeviceWithSettings1
+    public partial class deviceAssetInfoExportDeviceWithSettings1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6915,7 +6915,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deviceAssetInfoExportDeviceWithSettingsResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class deviceAssetInfoExportDeviceWithSettingsResponse
+    public partial class deviceAssetInfoExportDeviceWithSettingsResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6936,7 +6936,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="devicePropertyList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class devicePropertyList1
+    public partial class devicePropertyList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -6984,7 +6984,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="devicePropertyListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class devicePropertyListResponse
+    public partial class devicePropertyListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -7005,7 +7005,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerList", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerList1
+    public partial class customerList1
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -7034,7 +7034,7 @@ namespace NableApi
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="customerListResponse", WrapperNamespace="http://ei2.nobj.nable.com/", IsWrapped=true)]
-    internal partial class customerListResponse
+    public partial class customerListResponse
     {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ei2.nobj.nable.com/", Order=0)]
@@ -7052,13 +7052,13 @@ namespace NableApi
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    internal interface ServerEI2Channel : NableApi.ServerEI2, System.ServiceModel.IClientChannel
+    public interface ServerEI2Channel : NableApi.ServerEI2, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    internal partial class ServerEI2Client : System.ServiceModel.ClientBase<NableApi.ServerEI2>, NableApi.ServerEI2
+    public partial class ServerEI2Client : System.ServiceModel.ClientBase<NableApi.ServerEI2>, NableApi.ServerEI2
     {
         
         /// <summary>

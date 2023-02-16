@@ -40,8 +40,8 @@ This will retrieve a specific site from N-Central. You must replace with `{id}` 
 }
 ```
 
-### `GET` /api/search/azuretenantguid
-This will return an N-Central site object where the Azure Tenant GUID matches the one provided. This is an HTTP GET operation and expects a JSON object as its body. The body should be in the following format:
+### `POST` /api/search/azuretenantguid
+This will return an N-Central site object where the Azure Tenant GUID matches the one provided. This is an HTTP POST operation and expects a JSON object as its body. The body should be in the following format:
 ```json
 {
 	"azureTenantGuid":  "a19f37b4-34ca-4526-b84c-b53a3815ba0c",
